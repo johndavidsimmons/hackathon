@@ -15,9 +15,10 @@ from flask_script import Shell
  
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
+from app.usermodel import User
 def make_shell_context():
 	# Add db models as necessary
-	return dict(app=app, db=db)
+	return dict(app=app, db=db, User=User)
 
 manager.add_command('shell', Shell(make_context = make_shell_context))
 
