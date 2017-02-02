@@ -8,7 +8,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 
 # ################################################################################
-engine = create_engine('sqlite:////Users/johnzupan/mystuff/hackathon_2017/flask_site/hackathon/masterDB.db', convert_unicode=True)
+engine = create_engine('sqlite:///./masterDB.db', convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                         autoflush=False,
                                         bind=engine))
