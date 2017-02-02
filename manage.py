@@ -16,10 +16,10 @@ from flask_script import Shell
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
 from app.questionModel import QuestionModel
-from app.dataBaseModels import User
+
 def make_shell_context():
     # Add db models as necessary
-    return dict(app=app, db=db, QuestionModel=QuestionModel, User=User)
+    return dict(app=app, db=db, QuestionModel=QuestionModel)
 
 manager.add_command('shell', Shell(make_context = make_shell_context))
 
