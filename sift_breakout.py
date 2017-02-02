@@ -5,6 +5,7 @@ data = json.loads(open("C:\Temp\wewlad.json").read())
 
 skills = []
 interests = []
+emails = []
 for tm in data['results']:
     try:
         name = tm['firstName'] + ' ' + tm['lastName']
@@ -12,5 +13,6 @@ for tm in data['results']:
             skills.append((name, skill.lower()))
         for interest in tm['interests']:
             interests.append((name, interest.lower()))
+        emails.append((name, tm['email']))
     except:
         pass
