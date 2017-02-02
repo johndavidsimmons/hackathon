@@ -4,7 +4,7 @@ from config import config
 from flask_script import Manager
 from flask_security import Security, SQLAlchemyUserDatastore, \
     UserMixin, RoleMixin, login_required, current_user
-
+import pandas as pd
 
 manager = Manager()
 db = SQLAlchemy()
@@ -52,11 +52,13 @@ def create_app(config_name):
 
 
     # Create a user to test with
-    # @app.before_first_request
-    # def create_user():
-    #     db1.create_all()
-    #     user_datastore.create_user(email='jtzupan@gmail11.com', password='password')
-    #     db1.session.commit()
+    @app.before_first_request
+    def create_user():
+        file = pd.open_csv()
+        for person, email, extension in file:
+            db1.create_all()
+            user_datastore.create_user(email=email, password=extension)
+            db1.session.commit()
 
     # ############################## end flask-security #######################
 
