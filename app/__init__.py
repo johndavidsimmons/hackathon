@@ -52,13 +52,15 @@ def create_app(config_name):
 
 
     # Create a user to test with
-    @app.before_first_request
-    def create_user():
-        file = pd.open_csv()
-        for person, email, extension in file:
-            db1.create_all()
-            user_datastore.create_user(email=email, password=extension)
-            db1.session.commit()
+    # @app.before_first_request
+    # def create_user():
+
+    #     file = pd.read_csv('logins.csv')
+    #     for i,r in file.iterrows():
+    #         print r.email
+    #         db1.create_all()
+    #         user_datastore.create_user(email=r.email, password=r.extension)
+    #         db1.session.commit()
 
     # ############################## end flask-security #######################
 
