@@ -10,6 +10,7 @@ class Config:
     SQLALCHEMY_RECORD_QUERIES = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECURITY_REGISTERABLE = True
+    SECURITY_RECOVERABLE = True
 
 
     @staticmethod
