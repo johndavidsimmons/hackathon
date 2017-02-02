@@ -37,32 +37,33 @@ class User(db.Model):
 # db.create_all()
 # d = json.loads(open("wewlad.json").read())
 # tms = d['results']
-# for i in tms:
-# 	try:
-# 		db.session.add(User(office=i.get('office', "NA"), 
-# 			division=i.get('division', "NA"), 
-# 			teamLeaderEmail=i.get("teamLeaderEmail", "N/A"), 
-# 			sipAddress = i.get("sipAddress", "NA"), 
-# 			string_id=i.get("id", "NA"), 
-# 			isRemote=i.get("isRemote", "NA"), 
-# 			title=i.get("title", "NA"), 
-# 			location = i.get("location", "NA"), 
-# 			email = i.get("email", "NA"), 
-# 			subTeam = i.get("subTeam", "NA"), 
-# 			companyName = i.get("companyName", "NA"), 
-# 			team = i.get("team", "NA"), 
-# 			teamLeader = i.get("teamLeader", "NA"), 
-# 			phone = i.get("phone", "NA"), 
-# 			pictureUrl = i.get("pictureUrl", "NA"), 
-# 			anniversaryDate = i.get("anniversaryDate", "NA"), 
-# 			displayName = i.get("displayName", "NA"), 
-# 			firstName = i.get("firstName", "NA"), 
-# 			extension = i.get("extension", "NA"), 
-# 			lastName = i.get("lastName", "NA"), 
-# 			rockworldProfileURL = i.get("rockworldProfileURL", "NA"), 
-# 			trsName = i.get("trsName", "NA") ))
-# 	except Exception as e:
-# 		print e
+for i in tms:
+	if i.get('division') == u'Business Intelligence':
+		try:
+			db_session.add(User(office=i.get('office', "NA"), 
+				division=i.get('division', "NA"), 
+				teamLeaderEmail=i.get("teamLeaderEmail", "N/A"), 
+				sipAddress = i.get("sipAddress", "NA"), 
+				string_id=i.get("id", "NA"), 
+				isRemote=i.get("isRemote", "NA"), 
+				title=i.get("title", "NA"), 
+				location = i.get("location", "NA"), 
+				email = i.get("email", "NA"), 
+				subTeam = i.get("subTeam", "NA"), 
+				companyName = i.get("companyName", "NA"), 
+				team = i.get("team", "NA"), 
+				teamLeader = i.get("teamLeader", "NA"), 
+				phone = i.get("phone", "NA"), 
+				pictureUrl = i.get("pictureUrl", "NA"), 
+				anniversaryDate = i.get("anniversaryDate", "NA"), 
+				displayName = i.get("displayName", "NA"), 
+				firstName = i.get("firstName", "NA"), 
+				extension = i.get("extension", "NA"), 
+				lastName = i.get("lastName", "NA"), 
+				rockworldProfileURL = i.get("rockworldProfileURL", "NA"), 
+				trsName = i.get("trsName", "NA") ))
+		except Exception as e:
+			print e
 
 
 
