@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+
+{% block pagecontent %}
+
+<form method="POST">
+    <div class="container-fluid">
+        {{ form.hidden_tag() }}
+
+        <p>{{ form.responders.label }} {{ form.responders() }} 
+        {% for error in form.responders.errors %}[{{ error }}]{% endfor %}</p>
+
+    <button class="btn btn-primary" type="submit">Next</button>        
+    </div>
+</form>
+
+{% endblock %}
