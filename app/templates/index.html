@@ -2,7 +2,7 @@
 
 {% block pagecontent %}
 <div class="row">
-	<div class="col-sm-8">
+	<div class="col-lg-12">
 		 {% if current_user.is_authenticated %}
 			<h1>Welcome, {{u.displayName}}</h1>
 
@@ -10,9 +10,18 @@
 		    <h1>Welcome to Flask Voting App</h1>
 		    <h2>Please <a href="/login">Login</a></h2>		
 		{% endif %}
-		<h2>About us</h2>
-		<p>This is a test</p>
-		<img src="https://imgs.xkcd.com/comics/ballmer_peak.png">
+		<h2>About qPoll</h2>
+		<p>To us, team member empoweremnt is giving each team member the ability to shape the world they work in and connect with those around them that will make them the most successful.  qPoll enables this by offering a tool to quckly and easily gather team member feedback with a few clicks of the button.  Whether you're looking for like minded teammembers for a boardgame night, deciding where to go to lunch with your team or voting for Gilbert Award nominees, qPoll is the only tool you will need.  qPoll is integrated with Sift and Occupod so you can find team members with similar interests or who sit on your same floor.  With qPoll, you will be able to influence and impact every aspect of the Quicken Loans environment.</p>
+		<br>
+		<div class="col-md-7"><h2>Most Popular Question Today</h2></div>
+		<div class="col-md-5"><h2>Random Question of the Day</h2></div>
+		
+		<div class="col-md-7">
+			<img src="{{ url_for('static', filename='barChart.png') }}" class="img-responsive" style="max-height:450px">
+		</div>
+		<div class="col-md-5">
+			<img src="{{ url_for('static', filename='piechart.png') }}" class="img-responsive">
+		</div>
 	</div>
 </div>
 {% endblock %}
