@@ -4,7 +4,14 @@
 <div class="row">
 	<div class="col-sm-8">
 		 {% if current_user.is_authenticated %}
-			<h1>Hello World</h1>
+			<h1>Welcome, {{u.displayName}}</h1>
+			<h2>Dump</h2>
+			<ul>
+				<li>Ext: {{ u.extension }}</li>
+				<li>Div: {{ u.division }}</li>
+			</ul>
+
+			<a href="/createSurvey" class="btn btn-success">Create Survey</a>
 		{% else %}
 		    <h1>Welcome to Flask Voting App</h1>
 		    <h2>Please <a href="/login">Login</a></h2>
