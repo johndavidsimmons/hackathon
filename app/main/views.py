@@ -4,7 +4,7 @@ from . import main
 from flask_security import login_required, current_user
 from flask import request
 from .. import databaseModels as dm
-from forms import surveyForm, respondersForm, questionForm
+from forms import surveyForm, respondersForm, questionForm, choiceForm
 import datetime
 
 
@@ -37,7 +37,7 @@ def createSurvey():
                            creatorID=creatorID,
                            publicSurvey=public)
         dm.db_session.add(b)
-        # dm.db_session.commit()
+        dm.db_session.commit()
         return redirect(url_for('main.addResponders'))
 
     # if users has not yet submitted form
@@ -64,15 +64,28 @@ def addQuestion():
         # b = dm.questionModel()
         # dm.db_session.add(b)
         # dm.db_session.commit()
-        return redirect(url_for('main.Answers'))
+        return redirect(url_for('main.addChoices'))
     form = questionForm()
     return render_template('addQuestions.html', form=form)
 
 
-# @main.route('/addResponse/', methods=['GET', 'POST'])
-# def addResponse():
-    # if request.form:
-        
+@main.route('/addChoices/', methods=['GET', 'POST'])
+def addChoices():
+    if request.form:
+        choiceText = request.form.get('choiceText')
+        # b = dm.choiceModel()
+        # dm.db_session.add(b)
+        # dm.db_session.commit()
+        return redirect(url_for('main.addChoices'))
+    form=choiceForm()
+    return render_template('choiceForm.html', form=form)
+
+
+@main.route('/thankYou/')
+def thankYou():
+    return 'Thank you for completing a survey'
+
+
 
 
 

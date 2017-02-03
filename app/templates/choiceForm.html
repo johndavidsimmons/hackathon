@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block pagecontent %}
+
+<form method="POST">
+    <div class="container-fluid">
+        {{ form.hidden_tag() }}
+
+        <p>{{ form.choiceText.label }} {{ form.choiceText() }} 
+        {% for error in form.choiceText.errors %}[{{ error }}]{% endfor %}</p>
+
+    <button class="btn btn-primary" type="submit">Complete Survey</button> 
+    <button class="btn btn-primary" type="submit">Add Another Question</button> 
+    <button class="btn btn-primary" type="submit">Add Another Choice</button>        
+    </div>
+</form>
+
+{% endblock %}
