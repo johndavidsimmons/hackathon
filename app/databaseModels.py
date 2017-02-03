@@ -39,7 +39,7 @@ class surveyModel(Base):
         super(surveyModel, self).__init__(**kwargs)
 
     def __repr__(self):
-        return '{} {} {} {} {}'.format(self.surveyName, self.surveyCreateDt,
+        return '{} {} {} {} {} {}'.format(self.surveyID, self.surveyName, self.surveyCreateDt,
             self.responseLimit, self.creatorID, self.publicSurvey)
 
 

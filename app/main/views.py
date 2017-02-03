@@ -38,6 +38,9 @@ def createSurvey():
                            publicSurvey=public)
         dm.db_session.add(b)
         dm.db_session.commit()
+
+        surveyKey = dm.surveyModel.query.filter_by(surveyName=surveyName, surveyCreateDt=surveyCreateDt).first()
+        print surveyKey
         return redirect(url_for('main.addResponders'))
 
     # if users has not yet submitted form
@@ -61,9 +64,9 @@ def addResponders():
 def addQuestion():
     if request.form:
         questionText = request.form.get("questionText")
-        # b = dm.questionModel()
-        # dm.db_session.add(b)
-        # dm.db_session.commit()
+        b = dm.questionModel(questionText=questionText, survey_ID=1)
+        dm.db_session.add(b)
+        dm.db_session.commit()
         return redirect(url_for('main.addChoices'))
     form = questionForm()
     return render_template('addQuestions.html', form=form)
@@ -73,11 +76,11 @@ def addQuestion():
 def addChoices():
     if request.form:
         choiceText = request.form.get('choiceText')
-        # b = dm.choiceModel()
-        # dm.db_session.add(b)
-        # dm.db_session.commit()
+        b = dm.choiceModel(question_ID=1, surveyID=1, choiceText=choiceText)
+        dm.db_session.add(b)
+        dm.db_session.commit()
         return redirect(url_for('main.addChoices'))
-    form=choiceForm()
+    form = choiceForm()
     return render_template('choiceForm.html', form=form)
 
 
