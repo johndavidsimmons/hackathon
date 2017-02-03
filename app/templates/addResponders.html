@@ -11,7 +11,14 @@
         <p>{{ form.interests.label }} {{ form.interests() }} </p>
         <p>{{ form.location.label }} {{ form.location() }} </p>
 
-    <button class="btn btn-primary" type="submit" href-"addResponders">Next</button>        
+    <button class="btn btn-primary" type="submit" href="addResponders">Fetch</button>  
+    <button class="btn btn-success" type="submit" href="addQuestion">Confirm</button>         
+    </div>
+    <br>
+    <div>
+        {% for email in llist %}
+            <p>{{ email }}</p>
+        {% endfor %}
     </div>
 </form>
 

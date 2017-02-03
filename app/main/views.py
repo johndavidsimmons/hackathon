@@ -13,7 +13,7 @@ siid = None
 qiid = None
 
 def audience(choiceID, str=''):
-  conn = sqlite3.connect(r"C:\Users\nhounshell\Documents\github\hackathon\data-dev.sqlite")
+  conn = sqlite3.connect(r"/Users/johnzupan/mystuff/hackathon_2017/flask_site/hackathon/data-dev.sqlite")
 
   c = conn.cursor()
   queries = {0: "select distinct Name from floorData where DisplayName like ?"
@@ -84,15 +84,23 @@ def createSurvey():
 
 @main.route('/addResponders/', methods=['GET', 'POST'])
 def addResponders():
-    if request.form:
+    form = respondersForm()
+
+    if request.form and request.form.get("location"):
         location = request.form.get("location")
+        llist = audience(0, location)
+        return render_template('addResponders.html', llist=llist, form=form)
+    if request.form and request.form.get("skills"):
         skills = request.form.get("skills")
+        llist = audience(1, skills)
+        return render_template('addResponders.html', llist=llist, form=form)
+    if request.form and request.form.get("interests"):
         interests = request.form.get("interests")
-        print location, skills, interests
-        if location: print audience(0, location)
-        if skills: print audience(1, skills)
-        if interests: print audience(2, interests)
-        return redirect(url_for('main.addResponders'))
+        llist = audience(2, interests)
+        return render_template('addResponders.html', llist=llist, form=form)
+
+    if request.form:
+        return redirect(url_for('main.addQuestion'))
     form = respondersForm()
     return render_template('addResponders.html', form=form)
 
@@ -127,7 +135,7 @@ def addChoices():
 
 @main.route('/approval/')
 def approval():
-    recipients = ['JasonCharles@quickenloans.com','RuthLincoln@quickenloans.com','JohnSimmons@quickenloans.com']
+    recipients = ['NickHounshell@quickenloans.com','LucyLiu@quickenloans.com','TylerZupan@quickenloans.com']
     questions = ['Where should we go to lunch today?', 'What time works best?']
     return render_template('approvalTemplate.html', questions=questions, recipients=recipients)
 
