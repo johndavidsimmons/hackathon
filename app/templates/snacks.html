@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+
+{% block pagecontent %}
+<form class="form-group">
+<h1>Vote for the snack you would most like in the 12 Woodward kitchen next week.</h1><br>
+  <input type="radio" name="snacks" value="Chex-Mix" checked> Chex-Mix<br>
+  <input type="radio" name="snacks" value="Cheerios"> Cheerios<br>
+  <input type="radio" name="snacks" value="other"> Organic Snacks<br>  
+<br>
+      <a class="btn btn-primary" href="/myDash" role="button">Vote</a>
+</form> 
+{% endblock %}
