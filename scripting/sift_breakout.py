@@ -8,6 +8,7 @@ interests = []
 emails = []
 for tm in data['results']:
     try:
+        if tm['division'] != 'Business Intelligence': continue
         name = tm['firstName'] + ' ' + tm['lastName']
         for skill in tm['skills']:
             skills.append((name, skill.lower()))

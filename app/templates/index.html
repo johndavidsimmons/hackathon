@@ -5,17 +5,15 @@
 	<div class="col-sm-8">
 		 {% if current_user.is_authenticated %}
 			<h1>Welcome, {{u.displayName}}</h1>
-			<h2>Dump</h2>
-			<ul>
-				<li>Ext: {{ u.extension }}</li>
-				<li>Div: {{ u.division }}</li>
-			</ul>
 
 			<a href="/createSurvey" class="btn btn-success">Create Survey</a>
 		{% else %}
 		    <h1>Welcome to Flask Voting App</h1>
-		    <h2>Please <a href="/login">Login</a></h2>
+		    <h2>Please <a href="/login">Login</a></h2>		
 		{% endif %}
+		<h2>About us</h2>
+		<p>This is a test</p>
+		<img src="https://imgs.xkcd.com/comics/ballmer_peak.png">
 	</div>
 </div>
 {% endblock %}

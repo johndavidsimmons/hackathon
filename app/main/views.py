@@ -17,9 +17,17 @@ def index():
     u = dm.User.query.filter_by(email=email).first()
     return render_template("index.html", u=u)
 
+@main.route("/myDash/")
+def myDash():
+    if current_user.is_authenticated:
+       email = current_user.email
+    else:
+       email=None
+    u = dm.User.query.filter_by(email=email).first()
+    return render_template("myDash.html", u=u)
+
 @main.route('/createSurvey/', methods=['GET', 'POST'])
 def createSurvey():
-
     # if user is submitting form
     if request.form:
         surveyName = request.form.get('surveyName')

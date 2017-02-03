@@ -1,0 +1,38 @@
+{% extends "_base.html" %}
+
+{% block pagecontent %}
+<div class="row">
+    <div class="col-sm-8">
+            <h1>Welcome, {{u.displayName}}</h1>
+            <a href="/createSurvey" class="btn btn-success">Create Survey</a>
+
+    </div>
+    <div class="row" style="clear:both">
+        <div class="col-xs-6">
+            <h3>Needs Answering</h3>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="col-xs-6">
+            <h3>Your Questions</h3>            
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>            
+        </div>
+        <div class="col-xs-6">
+            <h3>Recent Questions</h3>            
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>            
+        </div>
+    </div>
+
+</div>
+{% endblock %}
