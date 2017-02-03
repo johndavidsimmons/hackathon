@@ -3,11 +3,25 @@
 {% block pagecontent %}
     <form method="POST">
     <div class="container-fluid">
+    <div class="form-group">
         {{ form.hidden_tag() }}
-        <p>{{ form.surveyName.label }} {{ form.surveyName() }} 
-        {% for error in form.surveyName.errors %}[{{ error }}]{% endfor %}</p>
 
-        {{ form.submit }}
+        {{ form.surveyName.label }} {{ form.surveyName(class_="form-control") }} 
+        {% for error in form.surveyName.errors %}[{{ error }}]{% endfor %}
+
+        <p>{{ form.responseLimit.label }} {{ form.responseLimit(class_="form-control") }} 
+        {% for error in form.responseLimit.errors %}[{{ error }}]{% endfor %}</p>
+
+        <p><strong>Is this a public survey?</strong></p>
+        {% for subfield in form.publicSurvey %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+        {% endfor %}
+    <br>
+    <button class="btn btn-primary" type="submit">Next</button>  
+    </div> 
     </div>
 </form>
 {% endblock %}
