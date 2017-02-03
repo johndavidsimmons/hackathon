@@ -69,6 +69,14 @@ def addQuestion():
     return render_template('addQuestions.html', form=form)
 
 
+@main.route('/addResponse/', methods=['GET', 'POST'])
+def addResponse():
+    if request.form:
+        
+
+
+
+
 
 
 
