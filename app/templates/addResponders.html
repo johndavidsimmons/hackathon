@@ -6,10 +6,12 @@
     <div class="container-fluid">
         {{ form.hidden_tag() }}
 
-        <p>{{ form.responders.label }} {{ form.responders() }} 
-        {% for error in form.responders.errors %}[{{ error }}]{% endfor %}</p>
+        <p>{{ form.responders.label }} </p>
+        <p>{{ form.skills.label }} {{ form.skills() }} </p>
+        <p>{{ form.interests.label }} {{ form.interests() }} </p>
+        <p>{{ form.location.label }} {{ form.location() }} </p>
 
-    <button class="btn btn-primary" type="submit">Next</button>        
+    <button class="btn btn-primary" type="submit" href-"addResponders">Next</button>        
     </div>
 </form>
 

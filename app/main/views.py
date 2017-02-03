@@ -6,9 +6,27 @@ from flask import request
 from .. import databaseModels as dm
 from forms import surveyForm, respondersForm, questionForm, choiceForm
 import datetime
+#from querying import audience
+import sqlite3
 
 siid = None
 qiid = None
+
+def audience(choiceID, str=''):
+  conn = sqlite3.connect(r"C:\Users\nhounshell\Documents\github\hackathon\data-dev.sqlite")
+
+  c = conn.cursor()
+  queries = {0: "select distinct Name from floorData where DisplayName like ?"
+            ,1: 'select distinct Name from skill_mapping where skill like ?'
+            ,2: 'select distinct Name from interest_mapping where interest like ?'
+            ,3: 'select distinct Name from team_breakout where team == "BI IQ"'
+            }
+  if choiceID < 3:
+      c.execute(queries[choiceID], ["%"+str+"%"])
+  else:
+      c.execute(queries[3])
+
+  return [x[0] for x in c.fetchall()]
 
 
 @main.route("/")
@@ -67,11 +85,14 @@ def createSurvey():
 @main.route('/addResponders/', methods=['GET', 'POST'])
 def addResponders():
     if request.form:
-        responders = request.form.get("responders")
-        # b = dm.surveyModel()
-        # dm.db_session.add(b)
-        # dm.db_session.commit()
-        return redirect(url_for('main.addQuestion'))
+        location = request.form.get("location")
+        skills = request.form.get("skills")
+        interests = request.form.get("interests")
+        print location, skills, interests
+        if location: print audience(0, location)
+        if skills: print audience(1, skills)
+        if interests: print audience(2, interests)
+        return redirect(url_for('main.addResponders'))
     form = respondersForm()
     return render_template('addResponders.html', form=form)
 
