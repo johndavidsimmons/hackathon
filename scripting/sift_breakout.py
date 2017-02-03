@@ -6,6 +6,7 @@ data = json.loads(open("C:\Temp\wewlad.json").read())
 skills = []
 interests = []
 emails = []
+teams = []
 for tm in data['results']:
     try:
         if tm['division'] != 'Business Intelligence': continue
@@ -15,5 +16,6 @@ for tm in data['results']:
         for interest in tm['interests']:
             interests.append((name, interest.lower()))
         emails.append((name, tm['email']))
+        teams.append((name, tm['subTeam']))
     except:
         pass
