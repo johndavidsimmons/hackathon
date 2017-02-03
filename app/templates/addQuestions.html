@@ -5,11 +5,12 @@
 <form method="POST">
     <div class="container-fluid">
         {{ form.hidden_tag() }}
-
-        <p>{{ form.questionText.label }} {{ form.questionText() }} 
+        <div class="col-lg-8">
+        <p>{{ form.questionText.label }} {{ form.questionText(class_="form-control") }} 
         {% for error in form.questionText.errors %}[{{ error }}]{% endfor %}</p>
 
-    <button class="btn btn-primary" type="submit">Next</button>        
+    <button class="btn btn-primary" type="submit">Next</button>    
+    </div>    
     </div>
 </form>
 

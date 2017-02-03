@@ -5,13 +5,14 @@
 <form method="POST">
     <div class="container-fluid">
         {{ form.hidden_tag() }}
-
-        <p>{{ form.choiceText.label }} {{ form.choiceText() }} 
+        <div class="col-lg-8">
+        <p>{{ form.choiceText.label }} {{ form.choiceText(class_="form-control") }} 
         {% for error in form.choiceText.errors %}[{{ error }}]{% endfor %}</p>
 
     <a class="btn btn-primary" href="/approval" role="button">Complete Survey</a>
     <a class="btn btn-primary" href="/addQuestion" role="button">Add Another Question</a>
-    <button class="btn btn-primary" type="submit">Add Another Choice</button>        
+    <button class="btn btn-primary" type="submit">Add Another Choice</button>    
+    </div>    
     </div>
 </form>
 
