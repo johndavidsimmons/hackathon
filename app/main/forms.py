@@ -11,6 +11,10 @@ class surveyForm(FlaskForm):
 
 class respondersForm(FlaskForm):
     responders = StringField('Who is this survey being sent to? ')
+    skills = StringField('People who are good at...')
+    interests = StringField('People who are interested in...')
+    location = StringField('People who who sit in...')
+    tms = StringField('My Team ')
 
 
 class questionForm(FlaskForm):
