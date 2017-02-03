@@ -10,8 +10,12 @@ import datetime
 
 @main.route("/")
 def index():
-    return render_template("index.html")
-
+    if current_user.is_authenticated:
+	   email = current_user.email
+    else:
+       email=None
+    u = dm.User.query.filter_by(email=email).first()
+    return render_template("index.html", u=u)
 
 @main.route('/createSurvey/', methods=['GET', 'POST'])
 def createSurvey():
