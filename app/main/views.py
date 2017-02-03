@@ -10,6 +10,7 @@ import datetime
 siid = None
 qiid = None
 
+
 @main.route("/")
 def index():
     if current_user.is_authenticated:
@@ -19,6 +20,7 @@ def index():
     u = dm.User.query.filter_by(email=email).first()
     return render_template("index.html", u=u)
 
+
 @main.route("/myDash/")
 def myDash():
     if current_user.is_authenticated:
@@ -26,6 +28,11 @@ def myDash():
     else:
        email=None
     u = dm.User.query.filter_by(email=email).first()
+    questionsToAnswer = dm.db_session.query(dm.userResponse).join(dm.choiceModel)\
+                                            .join(dm.questionModel)\
+                                            .filter_by(personID=current_user.password)
+    print questionsToAnswer
+    userResponse.query.filter_by(personID=current_user.password)
     return render_template("myDash.html", u=u)
 
 

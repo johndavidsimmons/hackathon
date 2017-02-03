@@ -13,7 +13,9 @@
   <div class="container">
         <ul class="nav nav-pills">
           <li role="presentation" {% if request.path == "/" %}class="active"{% endif %}><a href="/">Home</a></li>
+
           {% if current_user.is_authenticated %}
+          <li role="presentation" {% if request.path == "/myDash" %}class="active"{% endif %}><a href="/myDash">My Dash</a></li>
                     <li role="presentation"><a href="/logout">Logout</a></li>
                     <p class="navbar-text navbar-right">Signed in as {{ current_user.email }}</p>
                 {% else %}
