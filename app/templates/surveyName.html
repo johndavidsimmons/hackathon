@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block pagecontent %}
+    <form method="POST">
+    <div class="container-fluid">
+        {{ form.hidden_tag() }}
+        <p>{{ form.surveyName.label }} {{ form.surveyName() }} 
+        {% for error in form.surveyName.errors %}[{{ error }}]{% endfor %}</p>
+
+        {{ form.submit }}
+    </div>
+</form>
+{% endblock %}
