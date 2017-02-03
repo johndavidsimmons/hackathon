@@ -88,7 +88,7 @@ class userResponse(Base):
     userchoice = relationship('choiceModel', back_populates='user')
 
     def __repr__(self):
-        return '{} {} {}'.format(self.userResponseID, self.personID, self.choiceID)
+        return '{} {} {}'.format(self.userResponseID, self.personId, self.choice_ID)
 
 
 class User(Base):

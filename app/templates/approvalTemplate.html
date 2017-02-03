@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+
+{% block pagecontent %}
+
+        <H1>Question Review</H1>
+        <h3><strong>Survey Name: </strong> Tyler's Survey</h3>
+        <a class="btn btn-primary" href="#" role="button">Edit</a>
+        <br>
+        <h3><strong>Survey Recipients: </strong></h3>
+        {% for r in recipients %}
+        <p>{{ r }}</p>
+        {% endfor %}
+        <a class="btn btn-primary" href="#" role="button">Edit</a>
+        <br>
+        <h3><strong>Survey question(s): </strong></h3>
+            <p>Where shold we go to lunch today?</p>
+                <li>Calexico</li>
+                <li>Grand Trunk</li>
+                <li>CK</li>
+            <p>What time works best?</p>
+                <li>11:30-12:30</li>
+                <li>12:15-1:15</li>    
+            <br>
+        <a class="btn btn-primary" href="#" role="button">Edit</a>
+        <br>
+        <br>
+        <h2> If everything looks good, approve your survey and it will be sent to the recipients.</h2>
+        <a class="btn btn-primary" href="/thankYou" role="button">Send Survey</a>
+{% endblock %}

@@ -9,8 +9,8 @@
         <p>{{ form.choiceText.label }} {{ form.choiceText() }} 
         {% for error in form.choiceText.errors %}[{{ error }}]{% endfor %}</p>
 
-    <button class="btn btn-primary" type="submit">Complete Survey</button> 
-    <button class="btn btn-primary" type="submit">Add Another Question</button> 
+    <a class="btn btn-primary" href="/approval" role="button">Complete Survey</a>
+    <a class="btn btn-primary" href="/addQuestion" role="button">Add Another Question</a>
     <button class="btn btn-primary" type="submit">Add Another Choice</button>        
     </div>
 </form>

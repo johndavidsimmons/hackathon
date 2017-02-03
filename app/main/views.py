@@ -28,11 +28,8 @@ def myDash():
     else:
        email=None
     u = dm.User.query.filter_by(email=email).first()
-    questionsToAnswer = dm.db_session.query(dm.userResponse).join(dm.choiceModel)\
-                                            .join(dm.questionModel)\
-                                            .filter_by(personID=current_user.password)
-    print questionsToAnswer
-    userResponse.query.filter_by(personID=current_user.password)
+
+
     return render_template("myDash.html", u=u)
 
 
@@ -107,11 +104,31 @@ def addChoices():
     form = choiceForm()
     return render_template('choiceForm.html', form=form)
 
+@main.route('/approval/')
+def approval():
+    recipients = ['JasonCharles@quickenloans.com','RuthLincoln@quickenloans.com','JohnSimmons@quickenloans.com']
+    questions = ['Where should we go to lunch today?', 'What time works best?']
+    return render_template('approvalTemplate.html', questions=questions, recipients=recipients)
 
 @main.route('/thankYou/')
 def thankYou():
-    return 'Thank you for completing a survey'
+    return render_template('thankYou.html')
 
+@main.route('/snacks/')
+def snacks():
+    return render_template('snacks.html')
+
+
+@main.route("/myDash1/")
+def myDash1():
+    if current_user.is_authenticated:
+       email = current_user.email
+    else:
+       email=None
+    u = dm.User.query.filter_by(email=email).first()
+
+
+    return render_template("myDash1.html", u=u)
 
 
 
