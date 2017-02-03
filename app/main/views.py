@@ -11,7 +11,7 @@ import datetime
 @main.route("/")
 def index():
     if current_user.is_authenticated:
-	   email = current_user.email
+       email = current_user.email
     else:
        email=None
     u = dm.User.query.filter_by(email=email).first()
@@ -69,9 +69,9 @@ def addQuestion():
     return render_template('addQuestions.html', form=form)
 
 
-@main.route('/addResponse/', methods=['GET', 'POST'])
-def addResponse():
-    if request.form:
+# @main.route('/addResponse/', methods=['GET', 'POST'])
+# def addResponse():
+    # if request.form:
         
 
 
